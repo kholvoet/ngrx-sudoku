@@ -1,0 +1,9 @@
+td.cell-solved {
+  color: red;
+  font-size: 3.5em;
+}
+
+table {
+  width: 38px;
+  height: 70px;
+}

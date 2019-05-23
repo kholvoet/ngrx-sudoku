@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "ngrx-sudoku"
+  "defaultProject": "ngrx-sudoku",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

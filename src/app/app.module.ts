@@ -1,16 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import { SudokuCellComponent } from './components/sudoku-cell/sudoku-cell.component';
+import { SudokuBoardComponent } from './components/sudoku-board/sudoku-board.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SudokuCellComponent,
+    SudokuBoardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

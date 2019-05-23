@@ -1,0 +1,15 @@
+<table *ngIf="!solved">
+  <tr *ngFor="let r of [0, 1, 2]">
+    <td *ngFor="let c of [0, 1, 2]">
+      {{ getData(r, c) }}
+    </td>
+  </tr>
+</table>
+
+<table *ngIf="solved">
+  <tr>
+    <td class="cell-solved">
+      {{ data[0] }}
+    </td>
+  </tr>
+</table>

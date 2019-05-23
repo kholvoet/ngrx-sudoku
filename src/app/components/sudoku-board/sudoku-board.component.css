@@ -1,0 +1,8 @@
+td:nth-child(3n) {
+  border-right: 1px solid black;
+}
+
+td:first-child {
+  border-left: 1px solid black;
+}
+
