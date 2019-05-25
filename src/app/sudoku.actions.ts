@@ -1,4 +1,7 @@
 import {Action} from '@ngrx/store';
+import {CellAddress} from './cell';
+import {Span} from './span';
+
 
 export enum SudokuGameAction {
   IncrementTurn = '[SudokuIncrementTurn] IncrementTurn',

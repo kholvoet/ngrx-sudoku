@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Cell} from '../../cell';
 
 @Component({
   selector: 'td[sudoko-cell]',
@@ -8,7 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class SudokuCellComponent implements OnInit {
 
   @Input()
-  data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  cell: Cell;
 
   constructor() {
   }
@@ -17,14 +18,14 @@ export class SudokuCellComponent implements OnInit {
   }
 
   get solved() {
-    return this.data.length === 1;
+    return this.cell.values.length === 1;
   }
 
   getData(r: number, c: number) {
     const value = (r * 3) + c + 1;
     // console.log(r, c, value );
 
-    if (this.data.includes(value)) {
+    if (this.cell.values.includes(value)) {
       return value;
     }
     return '_';

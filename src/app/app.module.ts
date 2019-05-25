@@ -7,7 +7,7 @@ import {SudokuBoardComponent} from './components/sudoku-board/sudoku-board.compo
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
-import {turnReducer} from './sudoku.reducer';
+import {boardReducer, turnReducer} from './sudoku.reducer';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import {turnReducer} from './sudoku.reducer';
   imports: [
     BrowserModule,
     StoreModule.forRoot({
-      turn: turnReducer
+      turn: turnReducer,
+      board: boardReducer
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],

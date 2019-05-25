@@ -12,8 +12,8 @@ export enum CellValue {
 }
 
 export class CellAddress {
-  r: number;
-  c: number;
+  row: number;
+  col: number;
 }
 
 export interface Cell {
