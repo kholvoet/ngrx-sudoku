@@ -3,7 +3,11 @@ td.cell-solved {
   font-size: 3.5em;
 }
 
+td {
+  text-align: center;
+}
+
 table {
-  width: 38px;
+  width: 70px;
   height: 70px;
 }

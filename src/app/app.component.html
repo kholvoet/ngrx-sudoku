@@ -1,4 +1,6 @@
-<table  sudoku-board>
+<table sudoku-board>
 
 </table>
 
+<h2>Turn : {{ turn$ | async }}</h2>
+<button type="button" (click)="nextTurn()">Next Step</button>

@@ -1,14 +1,17 @@
-import { Action } from '@ngrx/store';
+import {Action} from '@ngrx/store';
 
-export enum SudokuActionTypes {
-  LoadSudokus = '[Sudoku] Load Sudokus',
-  
-  
+export enum SudokuGameAction {
+  IncrementTurn = '[SudokuIncrementTurn] IncrementTurn',
+  ResetGame = '[SudokuResetGame] Rest Game',
 }
 
-export class LoadSudokus implements Action {
-  readonly type = SudokuActionTypes.LoadSudokus;
+export class IncrementTurnAction implements Action {
+  readonly type = SudokuGameAction.IncrementTurn;
+
 }
 
+export class ResetGameAction implements Action {
+  readonly type = SudokuGameAction.ResetGame;
+}
 
-export type SudokuActions = LoadSudokus;
+export type SudokuGameActionUnion = IncrementTurnAction | ResetGameAction;

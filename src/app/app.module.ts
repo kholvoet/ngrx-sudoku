@@ -2,12 +2,12 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import { SudokuCellComponent } from './components/sudoku-cell/sudoku-cell.component';
-import { SudokuBoardComponent } from './components/sudoku-board/sudoku-board.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
+import {SudokuCellComponent} from './components/sudoku-cell/sudoku-cell.component';
+import {SudokuBoardComponent} from './components/sudoku-board/sudoku-board.component';
+import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../environments/environment';
+import {turnReducer} from './sudoku.reducer';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,9 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot({
+      turn: turnReducer
+    }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],

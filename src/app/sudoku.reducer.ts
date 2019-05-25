@@ -1,24 +1,19 @@
-import {SudokuActions, SudokuActionTypes} from './sudoku.actions';
-import {Cell} from './Cell';
+import {SudokuGameAction, SudokuGameActionUnion} from './sudoku.actions';
 
-export interface State {
+export interface SudokuState {
   turn: number;
-  board: Cell[][];
-  spans: Span[];
 }
 
-export const initialState: State = {
+export const initialState = {
   turn: 0,
-  board: [],
-  spans: []
 };
 
-export function reducer(state = initialState, action: SudokuActions): State {
+export function turnReducer(state = 0, action: SudokuGameActionUnion): number {
   switch (action.type) {
-
-    case SudokuActionTypes.LoadSudokus:
-      return state;
-
+    case SudokuGameAction.IncrementTurn:
+      return state + 1;
+    case SudokuGameAction.ResetGame:
+      return 0;
     default:
       return state;
   }
