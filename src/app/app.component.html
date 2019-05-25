@@ -4,3 +4,18 @@
 
 <h2>Turn : {{ turn$ | async }}</h2>
 <button type="button" (click)="nextTurn()">Next Step</button>
+
+<hr>
+Spans:
+<ul>
+  <li *ngFor="let s of span$ | async"> {{ s.cellIds | json }}</li>
+</ul>
+
+UnsolvedProblemCount : {{ unsolvedProblemCount }} <br />
+SolvedProblems ( count : {{ solvedSubProblems.length}}}:
+
+<hr>
+Solved SSP:
+<ul>
+  <li *ngFor="let s of solvedSubProblems"> {{ s | json }}</li>
+</ul>
