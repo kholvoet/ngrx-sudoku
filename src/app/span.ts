@@ -7,6 +7,7 @@ export interface SubProblem {
 }
 
 export interface Span {
+  id: number;
   cellIds: CellAddress[];
   unsolvedSubProblems: Set<CellAddress>[];
 }

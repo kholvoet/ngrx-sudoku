@@ -10,8 +10,9 @@ export interface SudokuState {
   turn: number;
 }
 
-function emptySpan() {
+function emptySpan(id: number): Span {
   return {
+    id: id,
     cellIds: [],
     unsolvedSubProblems: [],
   };
@@ -30,11 +31,12 @@ function initSpans(): Span[] {
   let x: number;
   let y: number;
   let spans: Span[] = [];
+  let spanId = 0;
 
   // init row and col spans
   for (x = 0; x < 9; ++x) {
-    const rowSpan: Span = emptySpan();
-    const colSpan: Span = emptySpan();
+    const rowSpan: Span = emptySpan(spanId++);
+    const colSpan: Span = emptySpan(spanId++);
 
     for (y = 0; y < 9; ++y) {
       rowSpan.cellIds = rowSpan.cellIds.concat({row: x, col: y});
@@ -55,7 +57,7 @@ function initSpans(): Span[] {
     for (y = 0; y < 9; y += patchDIM) {
       let r: number;
       let c: number;
-      const patchSpan: Span = emptySpan();
+      const patchSpan: Span = emptySpan(spanId++);
 
       for (r = x; r < x + patchDIM; ++r) {
         for (c = y; c < y + patchDIM; ++c) {
