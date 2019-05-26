@@ -1,17 +1,19 @@
 import {SudokuGameAction, SudokuGameActionUnion} from './sudoku.actions';
-import {Span} from './span';
+import {Span, SubProblem} from './span';
 import {Cell} from './cell';
 
 export interface SudokuState {
-  turn: number;
   board: Cell[][];
   spans: Span[];
+  subProblems: SubProblem[];
+  newlySolvedSubProblems: number;
+  turn: number;
 }
 
 function emptySpan() {
   return {
     cellIds: [],
-    unsolvedSubProblems: []
+    unsolvedSubProblems: [],
   };
 }
 
@@ -22,7 +24,6 @@ powerSetSorted(s) {
       [[]]
     )
   )(s).sort();
-
 }
 
 function initSpans(): Span[] {
@@ -86,7 +87,7 @@ function initBoard(): Cell[][] {
   for (r = 0; r < 9; ++r) {
     data[r] = [];
     for (c = 0; c < 9; ++c) {
-      if (r === 0) {
+      if (r === c) {
         data[r][c] = {
           id: {row: r, col: c},
           values: [ c + 1 ],

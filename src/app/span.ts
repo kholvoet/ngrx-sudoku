@@ -1,6 +1,12 @@
 import {CellAddress} from './cell';
 
-export class Span {
+export interface SubProblem {
+  problemId: number;
+  spanId: number;
+  problemCells: Set<CellAddress>;
+}
+
+export interface Span {
   cellIds: CellAddress[];
   unsolvedSubProblems: Set<CellAddress>[];
 }
