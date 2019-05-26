@@ -6,10 +6,9 @@ export interface SudokuState {
   board: Cell[][];
   spans: Span[];
   subProblems: SubProblem[];
-  newlySolvedSubProblems: number;
+  newlySolvedSubProblems: number[];
   turn: number;
 }
-
 function emptySpan(newId: number): Span {
   return {
     id: newId,
@@ -24,6 +23,9 @@ function powerSetSorted(s) {
       [[]]
     )
   )(s).sort();
+}
+function initSubProblems(spans: Span[]): SubProblem[] {
+  return [];
 }
 
 function initSpans(): Span[] {
@@ -85,7 +87,7 @@ function initBoard(): Cell[][] {
       if (r === c) {
         data[r][c] = {
           id: {row: r, col: c},
-          values: [ c + 1 ],
+          values: [c + 1],
           readOnly: false
         };
       } else {
@@ -100,6 +102,10 @@ function initBoard(): Cell[][] {
   return data;
 }
 
+const newBoard = initBoard();
+const newSpans = initSpans();
+const newSubProblems = initSubProblems(newSpans);
+
 export function boardReducer(state = initBoard(), action: SudokuGameActionUnion): Cell[][] {
   switch (action.type) {
     default:
@@ -107,7 +113,21 @@ export function boardReducer(state = initBoard(), action: SudokuGameActionUnion)
   }
 }
 
-export function spansReducer(state = initSpans(), action: SudokuGameActionUnion): Span[] {
+export function subProblemsReducer(state = newSubProblems, action: SudokuGameActionUnion): SubProblem[] {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
+export function spansReducer(state = newSpans, action: SudokuGameActionUnion): Span[] {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
+export function newlySolvedSubProblemsReducer(state = [], action: SudokuGameActionUnion): number[] {
   switch (action.type) {
     default:
       return state;
