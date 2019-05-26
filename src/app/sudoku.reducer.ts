@@ -10,16 +10,15 @@ export interface SudokuState {
   turn: number;
 }
 
-function emptySpan(id: number): Span {
+function emptySpan(newId: number): Span {
   return {
-    id: id,
+    id: newId,
     cellIds: [],
     unsolvedSubProblems: [],
   };
 }
 
-function
-powerSetSorted(s) {
+function powerSetSorted(s) {
   return (theArray => theArray.reduce(
       (subsets, value) => subsets.concat(subsets.map(set => [value, ...set])),
       [[]]
@@ -70,12 +69,6 @@ function initSpans(): Span[] {
   }
   return spans;
 }
-
-// export const initialState = {
-//   turn: 0,
-//   board: initBoard(),
-//   spans: initSpans()
-// };
 
 function initBoard(): Cell[][] {
   const initValue = new Array(9);
