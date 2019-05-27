@@ -1,28 +1,31 @@
-<table sudoku-board [board]="board$ | async">
-
-</table>
+<h2>Board</h2>
+<table sudoku-board [board]="board$ | async"></table>
 
 <h2>Turn : {{ turn$ | async }}</h2>
-<button type="button" (click)="nextTurn()">Next Step</button>
 
-<!--<hr>-->
-<!--Spans:-->
+<h2>Actions</h2>
+<div>
+  <button type="button" (click)="nextTurn()">Next Step</button>
+</div>
+
+<!--<h2>Spans:</h2>-->
 <!--<ul>-->
-  <!--<li *ngFor="let s of span$ | async"> {{ s.cellIds | json }}</li>-->
+<!--<li *ngFor="let s of span$ | async"> {{ s.cellIds | json }}</li>-->
 <!--</ul>-->
 
-UnsolvedProblemCount : {{ unsolvedProblemCount }} <br />
-SolvedProblems ( count : {{ solvedSubProblems.length}}}:
-
-<hr>
-Solved SSP:
+<h2> Stats</h2>
+<div>
+  UnsolvedProblemCount : {{ unsolvedProblemCount }} <br/>
+  SolvedProblemCount : {{ solvedSubProblems.length }} <br/>
+  % Remaining Solved : {{ (solvedSubProblems.length / unsolvedProblemCount) | percent:'1.2-5' }}
+</div>
+<h2>SolvedProblems</h2>
 <ul>
   <li *ngFor="let s of solvedSubProblems"> {{ s | json }}</li>
 </ul>
 
-<hr>
-Unsolved SubProblems:
+<!--<h2>Unsolved SubProblems</h2>-->
 <!--<ul>-->
-  <!--<li *ngFor="let sp of subProblems$ | async"> {{ sp | json }}</li>-->
+<!--<li *ngFor="let sp of subProblems$ | async"> {{ sp | json }}</li>-->
 <!--</ul>-->
 
