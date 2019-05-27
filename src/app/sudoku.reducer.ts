@@ -9,6 +9,7 @@ export interface SudokuState {
   newlySolvedSubProblems: number[];
   turn: number;
 }
+
 function emptySpan(newId: number): Span {
   return {
     id: newId,
@@ -23,9 +24,6 @@ function powerSetSorted(s) {
       [[]]
     )
   )(s).sort();
-}
-function initSubProblems(spans: Span[]): SubProblem[] {
-  return [];
 }
 
 function initSpans(): Span[] {
@@ -70,6 +68,21 @@ function initSpans(): Span[] {
     }
   }
   return spans;
+}
+
+function initSubProblems(spans: Span[]): SubProblem[] {
+  let newProblemId = 0;
+  const subProblems: SubProblem[] = [];
+  spans.forEach(span => {
+    span.unsolvedSubProblems.forEach(usp =>
+      subProblems.push({
+        problemId: newProblemId++,
+        spanId: span.id,
+        problemCells: usp
+      })
+    );
+  });
+  return subProblems;
 }
 
 function initBoard(): Cell[][] {

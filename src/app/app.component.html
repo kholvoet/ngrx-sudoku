@@ -5,11 +5,11 @@
 <h2>Turn : {{ turn$ | async }}</h2>
 <button type="button" (click)="nextTurn()">Next Step</button>
 
-<hr>
-Spans:
-<ul>
-  <li *ngFor="let s of span$ | async"> {{ s.cellIds | json }}</li>
-</ul>
+<!--<hr>-->
+<!--Spans:-->
+<!--<ul>-->
+  <!--<li *ngFor="let s of span$ | async"> {{ s.cellIds | json }}</li>-->
+<!--</ul>-->
 
 UnsolvedProblemCount : {{ unsolvedProblemCount }} <br />
 SolvedProblems ( count : {{ solvedSubProblems.length}}}:
@@ -19,3 +19,10 @@ Solved SSP:
 <ul>
   <li *ngFor="let s of solvedSubProblems"> {{ s | json }}</li>
 </ul>
+
+<hr>
+Unsolved SubProblems:
+<!--<ul>-->
+  <!--<li *ngFor="let sp of subProblems$ | async"> {{ sp | json }}</li>-->
+<!--</ul>-->
+
