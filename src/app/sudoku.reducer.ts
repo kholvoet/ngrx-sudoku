@@ -4,9 +4,7 @@ import {Cell} from './cell';
 
 export interface SudokuState {
   board: Cell[][];
-  spans: Span[];
   subProblems: SubProblem[];
-  newlySolvedSubProblems: number[];
   turn: number;
 }
 
@@ -115,7 +113,6 @@ function initBoard(): Cell[][] {
   return data;
 }
 
-const newBoard = initBoard();
 const newSpans = initSpans();
 const newSubProblems = initSubProblems(newSpans);
 
@@ -127,20 +124,6 @@ export function boardReducer(state = initBoard(), action: SudokuGameActionUnion)
 }
 
 export function subProblemsReducer(state = newSubProblems, action: SudokuGameActionUnion): SubProblem[] {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-
-export function spansReducer(state = newSpans, action: SudokuGameActionUnion): Span[] {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-
-export function newlySolvedSubProblemsReducer(state = [], action: SudokuGameActionUnion): number[] {
   switch (action.type) {
     default:
       return state;

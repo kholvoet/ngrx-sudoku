@@ -1,6 +1,4 @@
 import {Action} from '@ngrx/store';
-import {CellAddress} from './cell';
-import {Span} from './span';
 
 
 export enum SudokuGameAction {
@@ -10,7 +8,6 @@ export enum SudokuGameAction {
 
 export class IncrementTurnAction implements Action {
   readonly type = SudokuGameAction.IncrementTurn;
-
 }
 
 export class ResetGameAction implements Action {

@@ -2,7 +2,7 @@ import {CellAddress} from './cell';
 
 export interface SubProblem {
   problemId: number;
-  sp: number;
+  spanId: number;
   problemCells: Set<CellAddress>;
 }
 
