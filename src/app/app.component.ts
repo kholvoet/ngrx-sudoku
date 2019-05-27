@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
   }
 
   nextTurn(): void {
-    this.store.dispatch(new IncrementTurnAction());
+    this.store.dispatch(new IncrementTurnAction(this.solvedSubProblems));
   }
 
   get unsolvedProblemCount(): number {

@@ -1,4 +1,4 @@
-import {SudokuGameAction, SudokuGameActionUnion} from './sudoku.actions';
+import {IncrementTurnAction, SudokuGameAction, SudokuGameActionUnion} from './sudoku.actions';
 import {Span, SubProblem} from './span';
 import {Cell} from './cell';
 
@@ -118,6 +118,13 @@ const newSubProblems = initSubProblems(newSpans);
 
 export function boardReducer(state = initBoard(), action: SudokuGameActionUnion): Cell[][] {
   switch (action.type) {
+    case SudokuGameAction.IncrementTurn:
+      const solvedSupProblems = (action as IncrementTurnAction).payload;
+      console.log(solvedSupProblems);
+
+      return state;
+    case SudokuGameAction.ResetGame:
+      return initBoard();
     default:
       return state;
   }

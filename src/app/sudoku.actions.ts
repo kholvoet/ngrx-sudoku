@@ -1,4 +1,5 @@
 import {Action} from '@ngrx/store';
+import {SubProblem} from './span';
 
 
 export enum SudokuGameAction {
@@ -8,6 +9,8 @@ export enum SudokuGameAction {
 
 export class IncrementTurnAction implements Action {
   readonly type = SudokuGameAction.IncrementTurn;
+
+  constructor(public payload: SubProblem[]) {}
 }
 
 export class ResetGameAction implements Action {
