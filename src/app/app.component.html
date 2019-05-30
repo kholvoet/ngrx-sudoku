@@ -1,11 +1,13 @@
 <h2>Board</h2>
-<table sudoku-board [board]="board$ | async"></table>
+<table sudoku-board [board]="(board$ | async).data"></table>
 
 <h2>Turn : {{ turn$ | async }}</h2>
 
 <h2>Actions</h2>
 <div>
   <button type="button" (click)="nextTurn()">Next Step</button>
+  <button type="button" (click)="resetGame()">Reset Game</button>
+
 </div>
 
 <!--<h2>Spans:</h2>-->
