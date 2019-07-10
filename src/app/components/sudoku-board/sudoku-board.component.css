@@ -16,3 +16,13 @@ td {
 tr:nth-child(3n) td {
   border-bottom: 3px solid black;
 }
+
+.readonly {
+  font-weight: bold;
+  color: black;
+  background-color: lightgray ;
+}
+
+.editable {
+  color: black;
+}

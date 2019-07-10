@@ -1,25 +1,21 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {SudokuState} from '../../sudoku.reducer';
+import {Component, Input} from '@angular/core';
 import {Cell} from '../../cell';
 
 @Component({
-  selector: 'table[sudoku-board]',
-  templateUrl: './sudoku-board.component.html',
-  styleUrls: ['./sudoku-board.component.css']
+    // tslint:disable-next-line:component-selector
+    selector: 'table[sudoku-board]',
+    templateUrl: './sudoku-board.component.html',
+    styleUrls: ['./sudoku-board.component.css']
 })
-export class SudokuBoardComponent implements OnInit {
+export class SudokuBoardComponent {
 
-  @Input()
-  board: Cell[][];
+    @Input()
+    board: Cell[][];
 
-  constructor(private store: Store<SudokuState>) {
-  }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
-
-  getCell(r, c) {
-    return this.board[r][c];
-  }
+    getCell(r, c) {
+        return this.board[r][c];
+    }
 }

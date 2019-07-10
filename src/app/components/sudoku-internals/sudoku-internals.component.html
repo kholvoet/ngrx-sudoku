@@ -1,0 +1,32 @@
+<mat-accordion>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Spans
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <ul>
+    <li *ngFor="let s of board?.spans"> {{ s.cellIds | json }}</li>
+  </ul>
+</mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Solved Problems
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <ul>
+    <li *ngFor="let s of solvedSubProblems"> {{ s | json }}</li>
+  </ul>
+</mat-expansion-panel>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Unsolved SubProblems
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <ul>
+    <li *ngFor="let s of board?.spans"> {{ s.unsolvedSubProblems | json }}</li>
+  </ul>
+</mat-expansion-panel>
+</mat-accordion>
