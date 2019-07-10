@@ -110,37 +110,54 @@ function setupHard(b: Cell[][]) {
 export function setupExtremelyHard(b: Cell[][]) {
     // https://www.sudoku9x9.com/howtosolve_expert.php
     // id: 274341511
+    b[0][4].readOnly = true;
     b[0][4].values = [CellValue.TWO];
-
+    b[1][2].readOnly = true;
     b[1][2].values = [CellValue.THREE];
+    b[1][3].readOnly = true;
     b[1][3].values = [CellValue.ONE];
+    b[1][6].readOnly = true;
     b[1][6].values = [CellValue.SEVEN];
-
+    b[2][0].readOnly = true;
     b[2][0].values = [CellValue.FOUR];
+    b[2][5].readOnly = true;
     b[2][5].values = [CellValue.SIX];
+    b[2][6].readOnly = true;
     b[2][6].values = [CellValue.EIGHT];
-
+    b[3][5].readOnly = true;
     b[3][5].values = [CellValue.SEVEN];
+    b[3][8].readOnly = true;
     b[3][8].values = [CellValue.NINE];
-
+    b[4][0].readOnly = true;
     b[4][0].values = [CellValue.TWO];
+    b[4][3].readOnly = true;
     b[4][3].values = [CellValue.SIX];
+    b[4][6].readOnly = true;
     b[4][6].values = [CellValue.THREE];
-
+    b[5][2].readOnly = true;
     b[5][2].values = [CellValue.FOUR];
+    b[5][3].readOnly = true;
     b[5][3].values = [CellValue.EIGHT];
+    b[5][4].readOnly = true;
     b[5][4].values = [CellValue.ONE];
+    b[5][8].readOnly = true;
     b[5][8].values = [CellValue.SIX];
-
+    b[6][2].readOnly = true;
     b[6][2].values = [CellValue.NINE];
+    b[6][3].readOnly = true;
     b[6][3].values = [CellValue.FIVE];
+    b[6][7].readOnly = true;
     b[6][7].values = [CellValue.SEVEN];
-
+    b[7][1].readOnly = true;
     b[7][1].values = [CellValue.TWO];
+    b[7][6].readOnly = true;
     b[7][6].values = [CellValue.SIX];
-
+    b[8][0].readOnly = true;
     b[8][0].values = [CellValue.ONE];
+    b[8][5].readOnly = true;
     b[8][5].values = [CellValue.EIGHT];
+    b[8][6].readOnly = true;
     b[8][6].values = [CellValue.NINE];
+    b[8][8].readOnly = true;
     b[8][8].values = [CellValue.FOUR];
 }
