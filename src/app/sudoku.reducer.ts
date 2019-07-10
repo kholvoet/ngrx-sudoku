@@ -2,7 +2,7 @@ import {IncrementTurnAction, ShowInternalsAction, SudokuGameAction, SudokuGameAc
 import {initSpans, Span, SubProblem} from './span';
 import {Cell, CellAddress, CellValue} from './cell';
 import {Board, initBoard} from './board';
-import {setupEasy} from './sample-boards';
+import {setupExtremelyHard} from './sample-boards';
 
 export interface SudokuState {
     board: Board;
@@ -62,21 +62,21 @@ function removeElements(elements: CellValue[], cellAddresses: CellAddress[], boa
     });
 }
 
-function dataReducer(state, action: SudokuGameActionUnion) {
+function dataReducer(state: Board, action: SudokuGameActionUnion): Cell[][] {
     const solvedSupProblems: SubProblem[] = (action as IncrementTurnAction).payload;
 
-    const newData = JSON.parse(JSON.stringify(state.data));
+    const newData = [... state.data];
     solvedSupProblems.forEach(a => {
         if ( setSize(a.problemCells) !== 0 && setSize(a.problemCells) !== 9 ) {
-            const aPrime = getComplementToProblem(Array.from(a.problemCells.values()), state.spans[a.spanId]);
+            const aPrime = getComplementToProblem(a.problemCells, state.spans[a.spanId]);
             const problemPossibleValues: CellValue[] = getProblemPossibleValues(a.problemCells, newData);
             removeElements(problemPossibleValues, aPrime, newData);
         }
     });
     return newData;
-};
+}
 
-export function boardReducer(state = initBoard(setupEasy), action: SudokuGameActionUnion): Board {
+export function boardReducer(state = initBoard(setupExtremelyHard), action: SudokuGameActionUnion): Board {
     switch ( action.type ) {
         case SudokuGameAction.IncrementTurn:
             return {
@@ -84,7 +84,7 @@ export function boardReducer(state = initBoard(setupEasy), action: SudokuGameAct
                 data: dataReducer(state, action)
             };
         case SudokuGameAction.ResetGame:
-            return initBoard(setupEasy);
+            return initBoard(setupExtremelyHard);
         default:
             return state;
     }
@@ -114,10 +114,8 @@ export function turnReducer(state = 0, action: SudokuGameActionUnion): number {
 }
 
 export function showInternalsReducer(state = false, action: SudokuGameActionUnion): boolean {
-    switch ( action.type ) {
-        case SudokuGameAction.ShowInternals:
-            return (action as ShowInternalsAction).payload;
-        default:
-            return state;
+    if ( action.type === SudokuGameAction.ShowInternals ) {
+        return (action as ShowInternalsAction).payload;
     }
+    return state;
 }

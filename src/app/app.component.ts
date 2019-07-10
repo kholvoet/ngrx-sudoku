@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
             this.remainingProblems = problems.length;
             this.solvedSubProblems = problems.filter(problem => this.isSolved(problem.problemCells));
         });
+
     }
 
     isSolved(cells: CellAddress[]): boolean {

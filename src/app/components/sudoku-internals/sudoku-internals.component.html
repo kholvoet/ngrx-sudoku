@@ -6,7 +6,7 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
   <ul>
-    <li *ngFor="let s of board?.spans"> {{ s.cellIds | json }}</li>
+    <li *ngFor="let s of board?.spans"> cells: {{ s.cellIds | json }}, isPatch : {{ s.patchSpan }}</li>
   </ul>
 </mat-expansion-panel>
 <mat-expansion-panel>
